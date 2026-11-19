@@ -123,7 +123,6 @@ def seed_demo_data():
         con.commit()
     con.close()
 
-seed_demo_data()
 
 def money(v):
     try: return f"{float(v):,.0f} €".replace(",", " ").replace(".", ",")
@@ -224,6 +223,9 @@ def import_rows(rows, filename, exercice, type_flux):
     "Import des mandats ; dédoublonnage par empreinte de ligne."))
     con.commit(); con.close()
     return inserted,duplicates,total
+
+# Initialisation des données fictives après définition de toutes les fonctions nécessaires.
+seed_demo_data()
 
 def load_data():
     con=db()
